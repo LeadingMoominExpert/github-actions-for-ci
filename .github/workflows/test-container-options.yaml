@@ -15,3 +15,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       options: >-
         --name myContainerName
+
+    steps:
+    - name: done
+      run: echo "done"
