@@ -9,10 +9,7 @@ jobs:
     name: Container with name
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/repo/image:latest
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      image: nginx:latest
       options: >-
         --name myContainerName
 
