@@ -13,11 +13,9 @@ jobs:
     timeout-minutes: 10
     steps:
     - name: Comment on PR
-      env:
-        PR_URL: https://api.github.com/repos/LeadingMoominExpert/github-actions-for-ci/pulls/8/comments
       run: |
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          $PR_URL \
+          https://api.github.com/repos/LeadingMoominExpert/github-actions-for-ci/issues/8/comments \
           -d '{"body":"Hello asshole"}'
