@@ -12,16 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-    
-    - name: Check context
-      run: |
-        echo ${{ github.event.pull_request._links.comments.href }}
-        echo ${{ github.event.pull_request.title }}
       
     - name: Comment on PR
+      if: contains(github.event.pull_request.title, 'EDAM') == false
       run: |
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           ${{ github.event.pull_request._links.comments.href }} \
-          -d '{"body":"Hello asshole"}'
+          -d '{"body":"Looks like you haven't linked a JIRA issue to this PR"}'
