@@ -14,9 +14,9 @@ jobs:
     steps:
     
     - name: Check context
-      env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+      run: |
+        echo ${{ github.event.pull_request._links.comments.href }}
+        echo ${{ github.event.pull_request.title }}
       
     - name: Comment on PR
       run: |
