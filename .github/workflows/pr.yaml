@@ -20,4 +20,4 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           ${{ github.event.pull_request._links.comments.href }} \
-          -d '{"body":"Looks like you haven't linked a JIRA issue to this PR"}'
+          -d '{"body":"Looks like you have not linked a JIRA issue to this PR"}'
